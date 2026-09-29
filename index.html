@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitAI – Virtual Try-On</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">Fit<span>AI</span></div>
+    <div class="nav-pill">AI VIRTUAL TRY-ON</div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="badge">✨ Prøv tøj virtuelt</div>
+      <h1>Se hvordan tøjet<br><span>ser ud på dig.</span></h1>
+      <p>Upload et billede af dig selv og et billede af tøjet. AI'en laver derefter et realistisk try-on-billede.</p>
+    </section>
+
+    <section class="upload-grid">
+      <div class="upload-card">
+        <div class="number">01</div>
+        <h2>Dit billede</h2>
+        <p>Brug helst et billede, hvor hele overkroppen er synlig.</p>
+        <label class="dropzone" id="personDrop">
+          <input type="file" id="personInput" accept="image/*">
+          <img id="personPreview" alt="">
+          <div id="personEmpty">
+            <div class="icon">🧍</div>
+            <strong>Klik eller træk et billede hertil</strong>
+            <small>JPG, PNG eller WebP</small>
+          </div>
+        </label>
+      </div>
+
+      <div class="upload-card">
+        <div class="number">02</div>
+        <h2>Dit tøj</h2>
+        <p>Upload et tydeligt billede af det stykke tøj, du vil prøve.</p>
+        <label class="dropzone" id="clothesDrop">
+          <input type="file" id="clothesInput" accept="image/*">
+          <img id="clothesPreview" alt="">
+          <div id="clothesEmpty">
+            <div class="icon">👕</div>
+            <strong>Klik eller træk et billede hertil</strong>
+            <small>JPG, PNG eller WebP</small>
+          </div>
+        </label>
+      </div>
+    </section>
+
+    <button id="tryButton" class="try-button" disabled>
+      <span>✨</span> Prøv tøjet på mig
+    </button>
+
+    <section id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <h2>AI'en arbejder...</h2>
+      <p>Dit billede bliver genereret. Det kan tage lidt tid.</p>
+    </section>
+
+    <section id="resultSection" class="result hidden">
+      <div class="result-head">
+        <div>
+          <div class="badge">RESULTAT</div>
+          <h2>Dit virtuelle outfit</h2>
+        </div>
+        <button id="againButton" class="secondary">Prøv noget andet</button>
+      </div>
+      <div class="result-box">
+        <img id="resultImage" alt="AI-genereret try-on resultat">
+        <div id="resultError" class="error hidden"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>FitAI • Virtual Try-On prototype</footer>
+  <script src="app.js"></script>
+</body>
+</html>
